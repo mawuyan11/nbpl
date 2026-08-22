@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>你被骗了</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <video id="player" src="video.mp4" poster="poster.jpg" playsinline controls></video>
+
+  <script>
+    const video = document.getElementById('player');
+    let started = false;
+
+    document.addEventListener('click', () => {
+      if (started) return;
+      started = true;
+      video.volume = 0.3;
+      video.play();
+      video.loop = true;
+    });
+  </script>
+</body>
+</html>
